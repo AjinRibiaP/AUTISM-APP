@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism</title> 
+    <!-- Page Icon -->
+    <link rel="shortcut icon" href="image/heartbeat-solid.svg" type="image/x-icon">  
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <!-- Custom Css File Link -->
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        button {
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        #label-container {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body style="background-color:rgb(178, 220, 237,0.7); color:black;";>
+    <!-- Header Section Starts -->
+    
+
+    
+    <div >
+        <div >
+            <span class="H4" style="font-size:2cm;font-family:Arial;"><center>&nbsp;&nbsp;Prediction</center></span>
+            <div class="home-values-card">
+                
+                
+                
+            </div>
+          
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- About section Starts  -->
+    <section class="about" id="about" >
+        <h1 class="heading"><center><span></span></center></h1>
+        <div class="row" >
+            <div class="image">
+                <img src="./image/about-img.svg" alt="">
+            </div>
+            <div class="content">
+                <center> <h3 style="font-size:1cm;font-family:Arial;">&nbsp;&nbsp;&nbsp;&nbsp;Upload your image</h3></center>
+             
+              
+    <div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            
+            <input type="file" accept="image/*" onchange="handleImageUpload(event)" style="font-size:1cm;font-family:Arial;"></center>
+        <center><br><br>
+        <img id="selected-image" src="">
+        </center>
+
+
+
+
+
+
+        <center>&nbsp;&nbsp;&nbsp;&nbsp; <button onclick="predictImage()" style="width:6cm; height:1.5cm;font-size:1cm;">Predict</button></center> 
+
+
+        <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    
+        <div id="label-container"></div>
+        
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+
+
+       
+        
+
+
+
+        const MODEL_URL = "https://teachablemachine.withgoogle.com/models/CCiKWJMYH/";
+        let model, maxPredictions;
+
+        async function init() {
+            const modelURL = MODEL_URL + "model.json";
+            const metadataURL = MODEL_URL + "metadata.json";
+
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+        }
+
+        async function handleImageUpload(event) {
+            const file = event.target.files[0];
+            const img = document.createElement("img");
+            img.onload = async function() {
+                const prediction = await predict(img);
+                displayPredictions(prediction);
+            }
+            img.src = URL.createObjectURL(file);
+
+
+
+          
+  document.getElementById("selected-image").src = URL.createObjectURL(file);
+
+
+
+
+        }
+
+        async function predict(imgElement) {
+            return model.predict(imgElement);
+        }
+
+        function displayPredictions(prediction) {
+            const labelContainer = document.getElementById("label-container");
+            
+    labelContainer.innerHTML = "";
+
+
+
+    
+    // Create a new bar chart
+    const ctx = document.createElement("canvas");
+    labelContainer.appendChild(ctx);
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            
+            labels: [],
+            datasets: [{
+                label: 'Prediction Probability',
+                data: [],
+                borderColor: 'black',
+                backgroundColor: ['rgba(75, 192, 192, 0.9)', 'rgba(153, 102, 255, 0.9)', 'rgba(255, 159, 64, 0.9)'],
+              //borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+              
+                borderWidth: 2
+                
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    borderColor: 'black'
+                  
+                }
+                },
+
+
+                plugins: {
+                    legend: {
+                        display: false
+                        
+                    }
+                },
+                layout: {
+                    padding: {
+                        left: 5,
+                        right: 10,
+                        borderColor: 'black',
+                        top: 2,
+                        bottom: 2
+                        
+                        
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                aspectRatio: 1,
+                
+                barPercentage: 0.25 // Adjust the thickness of the bars
+            }
+        });
+
+    // Add the prediction data to the chart
+    for (let i = 0; i < maxPredictions; i++) {
+        const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        chart.data.labels.push(prediction[i].className);
+        chart.data.datasets[0].data.push(prediction[i].probability * 100);
+    }
+    
+    // Update the chart
+    chart.update();
+        }
+
+        init();
+    </script>
+
+            </div>
+        </div>
+    </section>
+   
+    <script src="js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

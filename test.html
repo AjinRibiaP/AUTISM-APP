@@ -1,0 +1,332 @@
+<html>
+    <head>
+        <style>
+
+          
+
+            #result.custom-alert {
+                 /* Change to your desired color */
+                color: black; /* Change to your desired text color */
+                padding: 20px;
+                position: absolute;
+                border-radius: 5px;
+                font-size: 1.2em;
+                text-align: center;
+            }
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <img src="images\Screenshot 2024-03-16 231218.png" style="height:14cm;width:100%;">
+        <div class="formquest" style="padding:0cm 5cm;">
+            <center><h1 style="color:blue; font-family:Arial;font-size:0.9cm;">Is my child autistic?</h1></center>
+
+<form id="questionnaire" style="padding:0cm 5cm; color:blue; font-family:Arial;font-size:0.5cm;">
+    
+  <div>
+    <b><label for="q1">1.Name:</label></b>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="q1-a" name="q1" value="" style="border-color:white;border:0px 0px 0px white; border-style:none;">
+<br>
+<br>
+
+<b><label for="q1">2.Age:</label></b>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="q1-a" name="q1" value="" style="border-color:white;border:0px 0px 0px white; border-style:none;">
+<br>
+<br>
+
+<b><label for="q1">3.Gender:</label></b>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="q1-a" name="q1" value="" style="border-color:white;border:0px 0px 0px white; border-style:none;">
+<br>
+<br>
+<b>Provide an answer to the following inquiries:</b>
+<br>
+<br><br>
+<br>
+
+    <b><label for="q1">1.Does your child have limited speech (non-verbal or speaks in only short senetences)?</label><br></b>
+    <br>
+    <input type="radio" id="q1-a" name="q1" value="a">
+    <label for="q1-a">Yes</label><br>
+    <input type="radio" id="q1-b" name="q1" value="b">
+    <label for="q1-b">No</label><br>
+    
+  </div>
+<br>
+<br>
+<br>
+  <div>
+    <b><label for="q2">2.Does your child not respond to their name?</label><br></b>
+    <br>
+    <input type="radio" id="q2-a" name="q2" value="a">
+    <label for="q2-a">Yes</label><br>
+    <input type="radio" id="q2-b" name="q2" value="b">
+    <label for="q2-b">No</label><br>
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+
+  <div>
+    <b><label for="q3">3.Does your child avoid eye contact?</label><br></b>
+    <br>
+    <input type="radio" id="q3-a" name="q3" value="a">
+    <label for="q3-a">Yes</label><br>
+    <input type="radio" id="q3-b" name="q3" value="b">
+    <label for="q3-b">No</label><br>
+
+<br>
+<br>
+    <b><label for="q4">4.Do they continue to be in isolation?</label><br></b>
+    <br>
+    <input type="radio" id="q4-a" name="q4" value="a">
+    <label for="q4-a">Yes</label><br>
+    <input type="radio" id="q4-b" name="q4" value="b">
+    <label for="q4-b">No</label><br>
+  </div>
+
+
+
+<br>
+<br>
+  <div>
+    <b><label for="q5">5.Does your child not engage in pretend play with other children?</label><br></b>
+    <br>
+    <input type="radio" id="q4-a" name="q4" value="a">
+    <label for="q4-a">Yes</label><br>
+    <input type="radio" id="q4-b" name="q4" value="b">
+    <label for="q4-b">No</label>
+    <br>
+
+<br>
+<br>
+    <b><label for="q6">6.Is your child not able to understand and respond to emotions, such as happy or sad expressions?</label><br></b>
+    <br>
+    <input type="radio" id="q6-a" name="q6" value="a">
+    <label for="q6-a">Yes</label><br>
+    <input type="radio" id="q6-b" name="q6" value="b">
+    <label for="q6-b">No</label><br>
+
+
+
+    <br>
+    <br>
+       <b><label for="q7">7.Does your child engage in repetitive behaviors such as hand-flapping, toe-walking, pacing, or lining up objects?</b>
+        </label><br>
+        <br>
+        <input type="radio" id="q7-a" name="q7" value="a">
+        <label for="q7-a">Yes</label><br>
+        <input type="radio" id="q7-b" name="q7" value="b">
+        <label for="q7-b">No</label><br>
+
+
+        <br>
+        <br>
+            <b><label for="q8">8.Did your child not reach typical developmental milestones, such as sitting up, crawling, and walking, on time?</b>
+            </label><br>
+            <br>
+            <input type="radio" id="q8-a" name="q8" value="a">
+            <label for="q8-a">Yes</label><br>
+            <input type="radio" id="q8-b" name="q8" value="b">
+            <label for="q8-b">No</label><br>
+
+
+            <br>
+            <br>
+                <b><label for="q9">9.Have there been any concerns or diagnoses related to development or behavior in your family?</b>
+                </label><br>
+                <br>
+                <input type="radio" id="q9-a" name="q9" value="a">
+                <label for="q9-a">Yes</label><br>
+                <input type="radio" id="q9-b" name="q9" value="b">
+                <label for="q9-b">No</label><br>
+
+            <br>
+            <br>
+                <b><label for="q10">10.Did you experience any complications during pregnancy or birth?</b>
+
+                </label><br>
+                <br>
+                <input type="radio" id="q10-a" name="q10" value="a">
+                <label for="q10-a">Yes</label><br>
+                <input type="radio" id="q10-b" name="q10" value="b">
+                <label for="q10-b">No</label><br>
+
+
+            <br>
+            <br>
+                <b><label for="q11">11.Is your child over or under-sensitive to smells, tastes, or touch?</b>
+
+                </label><br>
+                <br>
+                <input type="radio" id="q11-a" name="q11" value="a">
+                <label for="q11-a">Yes</label><br>
+                <input type="radio" id="q11-b" name="q11" value="b">
+                <label for="q11-b">No</label><br>
+
+            <br>
+            <br>
+                <b><label for="q12">12.Did they experience a stroke or any other health problems before turning one?</b>
+
+                </label><br>
+                <br>
+                <input type="radio" id="q12-a" name="q12" value="a">
+                <label for="q12-a">Yes</label><br>
+                <input type="radio" id="q12-b" name="q12" value="b">
+                <label for="q12-b">No</label><br>
+
+
+                <br>
+                <br>
+                   <b> <label for="q13">13.Activities your child is more involved?</b>
+    
+                    </label><br>
+                    <br>
+                    <input type="checkbox" id="q13-a" name="q13" value="a">
+                    <label for="q13-a">Lining up the toys in an order</label><br>
+                    <input type="checkbox" id="q13-b" name="q13" value="b">
+                    <label for="q13-b">Drawing or Painting</label><br>
+                    <input type="checkbox" id="q13-a" name="q13" value="a">
+                    <label for="q13-a">Playing alone</label><br>
+                    <input type="checkbox" id="q13-b" name="q13" value="b">
+                    <label for="q13-b">Often prefer repeated actions</label><br>
+                    <input type="checkbox" id="q13-a" name="q13" value="a">
+                    <label for="q13-a">Waving their arms</label><br>
+                    <input type="checkbox" id="q13-b" name="q13" value="b">
+                    <label for="q13-b">Flicking their fingers</label><br>
+
+                    <br>
+                    <br>
+                        <b><label for="q12">14.Does your child struggle to socialize with other children?</b>
+        
+                        </label><br>
+                        <br>
+                        <input type="radio" id="q12-a" name="q12" value="a">
+                        <label for="q12-a">Yes</label><br>
+                        <input type="radio" id="q12-b" name="q12" value="b">
+                        <label for="q12-b">No</label><br>
+
+                    <br>
+                    <br>
+                        <b><label for="q12">15.Does your child have obsessive interests?</b>
+        
+                        </label><br>
+                        <br>
+                        <input type="radio" id="q12-a" name="q12" value="a">
+                        <label for="q12-a">Yes</label><br>
+                        <input type="radio" id="q12-b" name="q12" value="b">
+                        <label for="q12-b">No</label><br>
+
+       <center>
+        <br><br>
+        <button id="submit-btn"  type="button"  style="background-color:blue;color:white;height:1cm;width:4cm;font-size:0.5cm;">Submit
+
+        </button></center>
+
+
+
+    </form>
+   
+
+
+
+        <div style="background-color:#f7f6f5">
+                <center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="result"  class="custom-alert"  style="color:rgb(233, 146, 84);font-size:2cm;font-family:Arial;">&nbsp;&nbsp;&nbsp;&nbsp;</div></center>
+                </div>
+
+            
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+       
+       
+
+        <script>
+           /*const form = document.getElementById("questionnaire");
+            const result = document.getElementById("result");
+            const submitBtn = document.getElementById("submit-btn");
+            let yesCount = 0;
+    
+            form.addEventListener("change", (event) => {
+                if (event.target.type === "radio" && event.target.value === "a") {
+                    yesCount++;
+                } else if (event.target.type === "checkbox" && event.target.checked) {
+                    yesCount++;
+                }
+            });
+    
+            submitBtn.addEventListener("click", () => {
+                if (yesCount > 5) {
+                    result.innerHTML = "Autistic";
+                } else {
+                    result.innerHTML = "Not Autistic";
+                }
+                result.style.display = "block";
+            });*/
+
+
+
+            const form = document.getElementById("questionnaire");
+        const result = document.getElementById("result");
+        const submitBtn = document.getElementById("submit-btn");
+        let yesCount = 0;
+
+        form.addEventListener("change", (event) => {
+            if (event.target.type === "radio" && event.target.value === "a") {
+                yesCount++;
+            } else if (event.target.type === "checkbox" && event.target.checked) {
+                yesCount++;
+            }
+        });
+
+        submitBtn.addEventListener("click", () => {
+            if (yesCount > 10) {
+                result.innerHTML = "  Result: Autistic";
+            } else {
+                result.innerHTML = "Result: Not Autistic";
+            }
+            if (yesCount > 10) {
+                result.innerHTML = "       Result: Autistic";
+            } else {
+                result.innerHTML = "Result: Not Autistic";
+            }
+            result.style.display = "block"; // Show the result
+
+
+
+
+            document.write(`<html><body><br><br><br><br><br><br><center><img src="images/res.png"><div style="background-color:rgb(131, 246, 242); height:5cm;width:13cm;color:blue;font-size:0.6cm;font-family:Arial;"><h1><br>${result.innerHTML}</h1></div></center></body></html>`);
+
+
+
+
+
+
+        });
+
+        </script>
+    
+
+
+
+    </body>
+</html>
